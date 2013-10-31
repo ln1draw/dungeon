@@ -90,6 +90,9 @@ while want_to_play
     noun = prompt[1]
     case verb
     when "go" then my_dungeon.go(noun)
+    when "look" then my_dungeon.show_current_description
+    else 
+      puts "I don't know how to do that"
     end
   end
 end
