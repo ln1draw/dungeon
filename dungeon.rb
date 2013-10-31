@@ -20,11 +20,16 @@ class Dungeon
   end
 
   def find_room_in_dungeon(reference)
-    @rooms.detect{|room| room.reference == reference}    
+    @rooms.detect{|room| room.reference == reference}   
   end
 
   def find_room_in_direction(direction)
-    find_room_in_dungeon(@player.location).connections[direction]
+    room = find_room_in_dungeon(@player.location).connections[direction]
+    if room == nil
+      @player.location
+    else
+      room
+    end
   end
 
   def go(direction)
@@ -58,8 +63,8 @@ class Dungeon
   end
 end
 
-my_dungeon = Dungeon.new("Ellen McAwesomesauce")
-my_dungeon.add_room(:largecave, "Large Cave", "EPICALLY large cave", {:west => :smallcave})
-my_dungeon.add_room(:smallcave, "Small Cave", "This cave is teeny-tiny", {:east => :largecave})
+#my_dungeon = Dungeon.new("Ellen McAwesomesauce")
+#my_dungeon.add_room(:largecave, "Large Cave", "EPICALLY large cave", {:west => :smallcave})
+#my_dungeon.add_room(:smallcave, "Small Cave", "This cave is teeny-tiny", {:east => :largecave})
 
-my_dungeon.start(:largecave)
+#my_dungeon.start(:largecave)
