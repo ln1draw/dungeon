@@ -20,7 +20,7 @@ class Dungeon
   end
 
   def find_room_in_dungeon(reference)
-    @rooms.detect{|room| room.reference==reference}    
+    @rooms.detect{|room| room.reference == reference}    
   end
 
   def find_room_in_direction(direction)
@@ -34,7 +34,7 @@ class Dungeon
   end
 
   class Player
-    attr_accessor :name,   :location
+    attr_accessor :name, :location
 
     def initialize(name)
       @name=name
@@ -45,7 +45,7 @@ class Dungeon
   class Room
     attr_accessor :reference, :name, :description, :connections
 
-    def intialize(reference, name, description, connections)
+    def initialize(reference, name, description, connections)
       @reference = reference
       @name = name
       @description = description
